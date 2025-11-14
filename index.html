@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Susma shrestha - Video Call Provider</title>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif; }
+body {
+  background: linear-gradient(135deg, #0f0f0f, #001a12, #003322, #00ff95, #003322, #0f0f0f);
+  background-size:300% 300%;
+  animation: bg 12s ease infinite;
+  color:#f5f5f5;
+  scroll-behavior:smooth;
+}
+@keyframes bg {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:60px 0;text-align:center;}
+.hero-content{max-width:800px;}
+.profile-picture{width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid #00ff95;margin-bottom:25px;box-shadow:0 0 25px rgba(0,255,149,0.6);}
+.hero h1{font-size:3.2rem;color:#00ff95;margin-bottom:20px;}
+.hero p{font-size:1.05rem;line-height:1.6;color:#e6e6e6;text-align:left;}
+.buttons{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:25px;}
+.btn{padding:13px 30px;border-radius:50px;font-weight:700;text-decoration:none;}
+.btn-primary{background:#00ff95;color:#0f0f0f;}
+.btn-primary:hover{background:#00cc78;}
+.btn-secondary{border:2px solid #00ff95;color:#00ff95;}
+.btn-secondary:hover{background:#00ff95;color:#0f0f0f;}
+
+.section-padding{padding:70px 0;}
+.section-title{text-align:center;font-size:2.2rem;color:#00ff95;margin-bottom:28px;text-transform:uppercase;}
+
+.about-section,.feedback-section,.proofs-section,.contact-section{
+  background:rgba(0,0,0,0.45);border-radius:14px;padding:40px;margin-top:40px;
+}
+.about-section p{margin-bottom:16px;line-height:1.6;color:#ddd;}
+
+.pricing-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.price-card{background:#141414;border-radius:14px;padding:25px;border:1px solid #222;}
+.price-card h3{color:#00ff95;}
+.price-card .price{font-size:2rem;margin:10px 0;}
+.price-card ul{list-style:none;color:#ccc;}
+.price-card ul li{padding:6px 0;border-bottom:1px dashed #333;}
+
+.proofs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;}
+.proof-img{width:100%;border-radius:10px;cursor:pointer;border:2px solid #00ff95;transition:transform .3s;}
+.proof-img:hover{transform:scale(1.05);}
+
+/* LIGHTBOX */
+.lightbox {
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:999;
+}
+.lightbox img{max-width:90%;max-height:85%;border:3px solid #00ff95;border-radius:10px;}
+.lightbox:target{display:flex;}
+
+/* FEEDBACK */
+.feedback-card{background:#0d0d0d;padding:18px;border-radius:12px;border-left:4px solid #00ff95;margin-bottom:15px;}
+.client-img{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid #00ff95;margin-bottom:10px;}
+.feedback-name{color:#00ff95;font-weight:700;margin-bottom:6px;}
+.stars{color:#FFD24D;margin-bottom:8px;}
+.feedback-text{color:#dcdcdc;line-height:1.6;font-size:0.97rem;}
+
+/* CONTACT */
+.contact-info p{margin:8px 0;}
+.contact-info a{color:#00ff95;text-decoration:none;}
+.contact-info a:hover{color:#00cc78;}
+footer{text-align:center;padding:25px 0;color:#999;}
+
+@media(max-width:700px){.hero h1{font-size:2.5rem;}.hero p{text-align:left;}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content container">
+    <img src="https://i.ibb.co/ZphX9cVS/ritika.jpg" alt="Ritika Thapa" class="profile-picture">
+    <h1>SUSMA SHRESTHA</h1>
+    <p>
+      Hi, I’m SUSMA SHRESTHA, a 21-year-old professional video call provider from Kathmandu, Nepal (Sankhamul & Kapan). I offer personalized, one-on-one video call sessions for meaningful conversations, advice, guidance, or friendly chat. Each session is private, secure, and enjoyable. Join my Telegram Membership for NPR 4500 (2 months) for daily new videos and pictures.
+    </p>
+    <div class="buttons">
+      <a href="#pricing" class="btn btn-primary">View Pricing</a>
+      <a href="#contact" class="btn btn-secondary">Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section container">
+<h2 class="section-title">About Me</h2>
+<p>Namaste! Mero naam SUSMA SHRESTHA ho ra ma Kathmandu ko Sankhamul ra Kapan bata ho. Ma 21 barsha ki chu ra video call provider ko rup ma professional service dinchu.</p>
+<p>Client ko satisfaction ra comfort mero sab bhanda important priority ho. Ma ekdam friendly, respectful, ra confidential service provide garchu.</p>
+<p>Har call ma I make sure you feel comfortable, confident, and happy. You can talk, laugh, or share anything freely.</p>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section-padding container">
+<h2 class="section-title">Pricing Plans</h2>
+<div class="pricing-cards">
+  <div class="price-card">
+    <h3>Basic</h3>
+    <p class="price">1550 NPR</p>
+    <ul>
+      <li>25 minutes</li>
+      <li>No Audio/Face</li>
+      <li>Basic Interaction</li>
+    </ul>
+  </div>
+  <div class="price-card">
+    <h3>Premium</h3>
+    <p class="price">2300 NPR</p>
+    <ul>
+      <li>1 hour session</li>
+      <li>Face & Audio included</li>
+      <li>Full satisfaction guaranteed</li>
+    </ul>
+  </div>
+  <div class="price-card">
+    <h3>Mix Package</h3>
+    <p class="price">1900 NPR</p>
+    <ul>
+      <li>Drive link with personal photos/videos</li>
+    </ul>
+  </div>
+  <div class="price-card">
+    <h3>Enterprise</h3>
+    <p class="price">7000 NPR</p>
+    <ul>
+      <li>7 days unlimited access</li>
+      <li>Includes role play & extra options</li>
+    </ul>
+  </div>
+  <div class="price-card">
+    <h3>Telegram Membership</h3>
+    <p class="price">4500 NPR</p>
+    <ul>
+      <li>2 months access</li>
+      <li>Daily videos & pictures</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- PROOFS -->
+<section class="proofs-section container">
+<h2 class="section-title">Proofs</h2>
+<div class="proofs-grid">
+  <a href="#img1"><img src="https://i.ibb.co/0R6jQWH2/1.jpg" class="proof-img"></a>
+  <a href="#img2"><img src="https://i.ibb.co/JJBRjnh/2.jpg" class="proof-img"></a>
+  <a href="#img3"><img src="https://i.ibb.co/gLMB3q4z/3.jpg" class="proof-img"></a>
+  <a href="#img4"><img src="https://i.ibb.co/r2x5CbW8/4.jpg" class="proof-img"></a>
+  <a href="#img5"><img src="https://i.ibb.co/qF20h2M8/5.jpg" class="proof-img"></a>
+  <a href="#img6"><img src="https://i.ibb.co/r2x5CbW8/6.jpg" class="proof-img"></a>
+</div>
+
+<!-- LIGHTBOX POPUPS -->
+<div id="img1" class="lightbox"><a href="#"><img src="https://i.ibb.co/0R6jQWH2/1.jpg"></a></div>
+<div id="img2" class="lightbox"><a href="#"><img src="https://i.ibb.co/JJBRjnh/2.jpg"></a></div>
+<div id="img3" class="lightbox"><a href="#"><img src="https://i.ibb.co/gLMB3q4z/3.jpg"></a></div>
+<div id="img4" class="lightbox"><a href="#"><img src="https://i.ibb.co/r2x5CbW8/4.jpg"></a></div>
+<div id="img5" class="lightbox"><a href="#"><img src="https://i.ibb.co/qF20h2M8/5.jpg"></a></div>
+<div id="img6" class="lightbox"><a href="#"><img src="https://i.ibb.co/r2x5CbW8/6.jpg"></a></div>
+</section>
+
+<!-- FEEDBACK -->
+<section class="feedback-section container">
+<h2 class="section-title">Client Feedback</h2>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/rfKdR6ZP/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Rohan Rai</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">SUSMA didi ko voice ra smile ta ekdam sweet lagyo. Feel like talking with real friend. Maile aile samma yesto comfortable call experience paeko chaina.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/nNwt7MRh/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Subash Chettri</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Video call ma natural lagin. Ekdam chill ra polite. Time fast nai gayo chatting gardai. 10/10!</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/RGY7c7gF/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Bibek Gurung</div>
+  <div class="stars">★★★★☆</div>
+  <div class="feedback-text">Friendly ra respectful nature le ramro feel ayo. I was nervous first but she handled it well. Highly recommend!</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/Fb8LBDbP/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Sandesh Thapa</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Mero first time thiyo, tara she made me feel relaxed and safe. Kura garda feels natural ra personal lagyo.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/wF6p923M/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Sujan Magar</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Friendly and understanding. Session end bhaye pachi pani feel aayo ki aru bela pani talk garna man lagyo.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/Hf8XzZGB/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Sandeep Karki</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Ekdam positive energy. Respectful ra kind. Maile jasto imagine gareko thiyo tes bhanda pani better experience paaye.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/k2pZnqr5/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Bikash Thapa</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Time fast nai gayo. Real conversation jasto feel ayo. Totally professional ra humble girl.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/KxXVg3c3/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Niraj Gurung</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Video quality ramro, talk khatra. She knows how to make client feel special.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/nq6HJvWf/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Ramesh Lama</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">One of the most genuine people I’ve talked to. Maile trust feel gare. Worth every rupee.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/0p2rQBSV/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Kiran Tamang</div>
+  <div class="stars">★★★★☆</div>
+  <div class="feedback-text">Voice soft ani calm. Ramro listener. I’ll book again soon!</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/v4xLP6Ts/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Rupesh Rai</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Mero day stress bhulaye. Kura garda positive energy feel bhayo. Highly professional.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/Fkd6FzTW/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Deepak Magar</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Call ma full fun, laughter ani confidence. Maile sochda bhanda far better experience.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/jkGtbXvw/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Rabin Khadka</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">I felt totally safe. SUSMA genuinely cares about clients. Bistari friend jasto feel bhayo.</div>
+</div>
+
+<div class="feedback-card">
+  <img src="https://i.ibb.co/sJ3mynhx/image.jpg" alt="Client Photo" class="client-img">
+  <div class="feedback-name">Dipesh Thapa</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Friendly and understanding. Service quality ekdam top. Highly trustworthy!</div>
+</div>
+
+<div class="feedback-card">
+  <div class="feedback-name">Ashish Gurung</div>
+  <div class="stars">★★★★☆</div>
+  <div class="feedback-text">Ramro energy, smooth call, zero awkwardness. Maile imagine gareko bhanda ramro experience.</div>
+</div>
+
+<div class="feedback-card">
+  <div class="feedback-name">Pawan Rai</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Ekdam polite, confident ra caring. Next time ma premium plan try garne sochma chu.</div>
+</div>
+
+<div class="feedback-card">
+  <div class="feedback-name">Roshan Limbu</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Great conversation, no fake feeling at all. Real smile and warm energy. Loved it!</div>
+</div>
+
+<div class="feedback-card">
+  <div class="feedback-name">Anish Shrestha</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Every minute worth it. Communication ekdam clear ra smooth. Thumbs up!</div>
+</div>
+
+<div class="feedback-card">
+  <div class="feedback-name">Pratap Gurung</div>
+  <div class="stars">★★★★★</div>
+  <div class="feedback-text">Great communication, friendly nature, and natural talk style. Recommended!</div>
+</div>
+
+</section>
+
+<!-- CONTACT (ADDED) -->
+<section id="contact" class="contact-section container">
+  <h2 class="section-title">Contact Me</h2>
+  <div class="contact-info" style="text-align:center;">
+    <p><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/Ritika_thapa09" target="_blank" rel="noopener noreferrer">@susma_shrestha108</a></p>
+    <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/9779705745951" target="_blank" rel="noopener noreferrer">9705745951</a></p>
+    <p><i class="fa fa-envelope"></i> Email: <a href="mailto:susmastha027@gmail.com">thaparitika027@gmail.com</a></p>
+  </div>
+</section>
+
+<footer>
+  © 2025 SUSMA SHRESTHA | All Rights Reserved
+</footer>
+
+</body>
+</html>
